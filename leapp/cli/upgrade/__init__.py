@@ -232,7 +232,7 @@ def upgrade(args):
         repositories = load_repositories()
     except LeappError as exc:
         raise CommandError(exc.message)
-    workflow = repositories.lookup_workflow('IPUWorkflow')(auto_reboot=args.reboot)
+    workflow = repositories.lookup_workflow('IPUWorkflowEl8ToEl9')(auto_reboot=args.reboot)
     process_whitelist_experimental(repositories, workflow, configuration, logger)
     warn_if_unsupported(configuration)
     with beautify_actor_exception():
@@ -281,7 +281,7 @@ def preupgrade(args):
         repositories = load_repositories()
     except LeappError as exc:
         raise CommandError(exc.message)
-    workflow = repositories.lookup_workflow('IPUWorkflow')()
+    workflow = repositories.lookup_workflow('IPUWorkflowEl8ToEl9')()
     warn_if_unsupported(configuration)
     process_whitelist_experimental(repositories, workflow, configuration, logger)
     with beautify_actor_exception():
