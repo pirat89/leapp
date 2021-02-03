@@ -281,9 +281,9 @@
                                     }
                                 ],
                                 "anyOf": [
-			            { "required": [ "external" ] },
-				    { "required": [ "remediations" ] },
-				    { "required": [ "related_resources" ] }
+                                    { "required": [ "external" ] },
+                                    { "required": [ "remediations" ] },
+                                    { "required": [ "related_resources" ] }
                                 ],
                                 "properties": {
                                     "external": {
@@ -381,143 +381,143 @@
                                                         "scheme",
                                                         "title"
                                                     ],
-                                                   "properties": {
-                                                       "scheme": {
-                                                           "$id": "#/properties/detail/properties/related_resources/items/anyOf/0/properties/scheme",
-                                                           "type": "string",
-                                                           "title": "The scheme schema",
-                                                           "description": "A scheme (type) of the related resource.",
-                                                           "default": "",
-                                                           "examples": [
-                                                               "package"
-                                                           ]
-                                                       },
-                                                   "title": {
-                                                       "$id": "#/properties/detail/properties/related_resources/items/anyOf/0/properties/title",
-                                                       "type": "string",
-                                                       "title": "The title schema",
-                                                       "description": "Title of the related resource.",
-                                                       "default": "",
-                                                       "examples": [
-                                                           "grep"
-                                                       ]
-                                                   }
-                                               },
-                                               "additionalProperties": true
-                                               }
-                                           ]
-                                       }
-                                   },
-                                   "remediations": {
-                                       "$id": "#/properties/detail/properties/remediations",
-                                       "type": "array",
-                                       "title": "The remediations schema",
-                                       "description": "A list of remediations, describes what needs to be done to fix the problem.",
-                                       "default": [],
-                                       "examples": [
-                                           [
-                                               {
-                                                   "type": "hint",
-                                                   "context": "Please update your scripts to be compatible with the changes."
-                                               }
-                                           ]
-                                       ],
-                                       "additionalItems": true,
-                                       "items": {
-                                           "$id": "#/properties/detail/properties/remediations/items",
-                                           "anyOf": [
-                                               {
-                                                   "$id": "#/properties/detail/properties/remediations/items/anyOf/0",
-                                                   "type": "object",
-                                                   "title": "The first remediation",
-                                                   "description": "",
-                                                   "default": {},
-                                                   "examples": [
-                                                       {
-                                                           "type": "hint",
-                                                           "context": "Please update your scripts to be compatible with the changes."
-                                                       }
-                                                   ],
-                                                   "required": [
-                                                       "type",
-                                                       "context"
-                                                   ],
-                                                   "properties": {
-						       "anyOf": [
-						           {
-                                                               "type": {
-                                                                   "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
-                                                                   "type": "string",
-                                                                   "title": "The type schema",
-                                                                   "description": "Type of remediation.",
-                                                                   "default": "",
-							           "enum": ["hint", "playbook"],
-                                                                   "examples": [
-                                                                       "hint"
-                                                                   ]
-                                                               },
-                                                               "context": {
-                                                                   "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
-                                                                   "type": "string",
-                                                                   "title": "The context schema",
-                                                                   "description": "The remediation itself.",
-                                                                   "default": "",
-                                                                   "examples": [
-                                                                       "Please update your scripts to be compatible with the changes."
-                                                                   ]
-                                                               }
-							   },
-							   {
-                                                               "type": {
-                                                                   "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
-                                                                   "type": "string",
-                                                                   "title": "The type schema",
-                                                                   "description": "Type of remediation.",
-                                                                   "default": "",
-							           "enum": ["commands"],
-                                                                   "examples": [
-                                                                       "commands"
-                                                                   ]
-                                                               },
-                                                               "context": {
-                                                                   "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
-                                                                   "type": "array",
-                                                                   "title": "The context schema",
-                                                                   "description": "List of remediation commands.",
-                                                                   "default": [],
-                                                                   "examples": [
-								       [
-								           "rm -rf /tmp/42"
-								       ]
-                                                                   ],
-                                                                   "additionalItems": true,
-                                                                   "items": {
-                                                                       "$id": "#/properties/entries/items/anyOf/0/properties/flags/items",
-                                                                       "anyOf": [
-                                                                           {
-                                                                               "$id": "#/properties/entries/items/anyOf/0/properties/flags/items/anyOf/0",
-                                                                               "type": "string",
-                                                                               "title": "The remediation command schema",
-                                                                               "description": "The remediation in form of a command.",
-                                                                               "default": "",
-                                                                               "examples": [
-                                                                                   "rm -rf /tmp/42"
-                                                                               ]
-                                                                           }
-                                                                       ]
-                                                                   }
-                                                               }
-							   }
-						       ]
+                                                    "properties": {
+                                                        "scheme": {
+                                                            "$id": "#/properties/detail/properties/related_resources/items/anyOf/0/properties/scheme",
+                                                            "type": "string",
+                                                            "title": "The scheme schema",
+                                                            "description": "A scheme (type) of the related resource.",
+                                                            "default": "",
+                                                            "examples": [
+                                                                "package"
+                                                            ]
+                                                        },
+                                                        "title": {
+                                                            "$id": "#/properties/detail/properties/related_resources/items/anyOf/0/properties/title",
+                                                            "type": "string",
+                                                            "title": "The title schema",
+                                                            "description": "Title of the related resource.",
+                                                            "default": "",
+                                                            "examples": [
+                                                                "grep"
+                                                            ]
+                                                        }
                                                     },
                                                     "additionalProperties": true
                                                 }
-					    ]
+                                            ]
+                                        }
+                                    },
+                                    "remediations": {
+                                        "$id": "#/properties/detail/properties/remediations",
+                                        "type": "array",
+                                        "title": "The remediations schema",
+                                        "description": "A list of remediations, describes what needs to be done to fix the problem.",
+                                        "default": [],
+                                        "examples": [
+                                            [
+                                                {
+                                                    "type": "hint",
+                                                    "context": "Please update your scripts to be compatible with the changes."
+                                                }
+                                            ]
+                                        ],
+                                        "additionalItems": true,
+                                        "items": {
+                                            "$id": "#/properties/detail/properties/remediations/items",
+                                            "anyOf": [
+                                                {
+                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0",
+                                                    "type": "object",
+                                                    "title": "The first remediation",
+                                                    "description": "",
+                                                    "default": {},
+                                                    "examples": [
+                                                        {
+                                                            "type": "hint",
+                                                            "context": "Please update your scripts to be compatible with the changes."
+                                                        }
+                                                    ],
+                                                    "required": [
+                                                        "type",
+                                                        "context"
+                                                    ],
+                                                    "properties": {
+                                                        "anyOf": [
+                                                            {
+                                                                "type": {
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
+                                                                    "type": "string",
+                                                                    "title": "The type schema",
+                                                                    "description": "Type of remediation.",
+                                                                    "default": "",
+                                                                    "enum": ["hint", "playbook"],
+                                                                    "examples": [
+                                                                        "hint"
+                                                                    ]
+                                                                },
+                                                                "context": {
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
+                                                                    "type": "string",
+                                                                    "title": "The context schema",
+                                                                    "description": "The remediation itself.",
+                                                                    "default": "",
+                                                                    "examples": [
+                                                                        "Please update your scripts to be compatible with the changes."
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": {
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
+                                                                    "type": "string",
+                                                                    "title": "The type schema",
+                                                                    "description": "Type of remediation.",
+                                                                    "default": "",
+                                                                    "enum": ["commands"],
+                                                                    "examples": [
+                                                                        "commands"
+                                                                    ]
+                                                                },
+                                                                "context": {
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
+                                                                    "type": "array",
+                                                                    "title": "The context schema",
+                                                                    "description": "List of remediation commands.",
+                                                                    "default": [],
+                                                                    "examples": [
+                                                                        [
+                                                                            "rm -rf /tmp/42"
+                                                                        ]
+                                                                    ],
+                                                                    "additionalItems": true,
+                                                                    "items": {
+                                                                        "$id": "#/properties/entries/items/anyOf/0/properties/flags/items",
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "$id": "#/properties/entries/items/anyOf/0/properties/flags/items/anyOf/0",
+                                                                                "type": "string",
+                                                                                "title": "The remediation command schema",
+                                                                                "description": "The remediation in form of a command.",
+                                                                                "default": "",
+                                                                                "examples": [
+                                                                                    "rm -rf /tmp/42"
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "additionalProperties": true
+                                                }
+                                            ]
                                         },
                                         "additionalProperties": true
                                     }
-		                }
-			    },
+                                }
+                            },
                             "actor": {
                                 "$id": "#/properties/entries/items/anyOf/0/properties/actor",
                                 "type": "string",
@@ -544,7 +544,7 @@
                                 "title": "The audience schema",
                                 "description": "The key audience of the reported problem.",
                                 "default": "",
-				"enum": ["sysadmin", "developer"],
+                                "enum": ["sysadmin", "developer"],
                                 "examples": [
                                     "sysadmin"
                                 ]
@@ -570,7 +570,7 @@
                                             "title": "The report flag schema",
                                             "description": "A report flag can have a predefined value.",
                                             "default": "",
-					    "enum": ["failure", "inhibitor"],
+                                            "enum": ["failure", "inhibitor"],
                                             "examples": [
                                                 "failure"
                                             ]
@@ -581,7 +581,7 @@
                             "id": {
                                 "$id": "#/properties/entries/items/anyOf/0/properties/id",
                                 "type": "string",
-			        "format": "uuid",
+                                "format": "uuid",
                                 "title": "The id schema",
                                 "description": "Unique id for the report entry. Not stable.",
                                 "default": "",
