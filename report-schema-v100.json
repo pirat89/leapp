@@ -420,6 +420,46 @@
                                                     "type": "hint",
                                                     "context": "Please update your scripts to be compatible with the changes."
                                                 }
+                                            ],
+                                            [
+                                                {
+                                                  "type": "hint", 
+                                                  "context": "This is remediation with hint and the command."
+                                                }, 
+                                                {
+                                                  "type": "command", 
+                                                  "context": [ "echo", "some text" ]
+                                                }
+                                            ],
+                                            [
+                                              {
+                                                "type": "command", 
+                                                "context": [ "echo", "some text", "2" ]
+                                              }, 
+                                              {
+                                                "type": "command", 
+                                                "context": [ "echo", "2nd", "cmd" ]
+                                              }
+                                            ],
+                                            [
+                                              {
+                                                "type": "hint", 
+                                                "context": "The remediation with hint, command, and playbook."
+                                              }, 
+                                              {
+                                                "type": "command", 
+                                                "context": [ "echo", "some text" ]
+                                              }, 
+                                              {
+                                                "type": "playbook", 
+                                                "context": "/path/to/playbook"
+                                              }
+                                            ],
+                                            [
+                                              {
+                                                "type": "playbook", 
+                                                "context": "/path/to/playbook"
+                                              }
                                             ]
                                         ],
                                         "additionalItems": true,
