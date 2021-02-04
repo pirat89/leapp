@@ -511,7 +511,7 @@
                                                     "additionalProperties": true
                                                 },
                                                 {
-                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0",
+                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/1",
                                                     "type": "object",
                                                     "title": "The first remediation",
                                                     "description": "",
@@ -528,7 +528,7 @@
                                                     ],
                                                     "properties": {
                                                             "type": {
-                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/type",
                                                                     "type": "string",
                                                                     "title": "The type schema",
                                                                     "description": "Type of remediation.",
@@ -537,7 +537,7 @@
                                                                     "examples": ["command"]
                                                             },
                                                             "context": {
-                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/context",
                                                                     "type": "array",
                                                                     "title": "The context schema",
                                                                     "description": "List of remediation commands.",
@@ -549,10 +549,10 @@
                                                                     ],
                                                                     "additionalItems": true,
                                                                     "items": {
-                                                                        "$id": "#/properties/entries/items/anyOf/0/properties/flags/items",
+                                                                        "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/context/items",
                                                                         "anyOf": [
                                                                             {
-                                                                                "$id": "#/properties/detail/remediation/items/anyOf/0/properties/context/items/anyOf/0",
+                                                                                "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/context/items/anyOf/0",
                                                                                 "type": "string",
                                                                                 "title": "The remediation command schema",
                                                                                 "description": "The remediation in form of a command.",
