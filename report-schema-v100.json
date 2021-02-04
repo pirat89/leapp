@@ -512,8 +512,8 @@
                                                     "default": {},
                                                     "examples": [
                                                         {
-                                                            "type": "hint",
-                                                            "context": "Please update your scripts to be compatible with the changes."
+                                                            "type": "command",
+                                                            "context": [ "rm -rf /tmp/42" ]
                                                         }
                                                     ],
                                                     "required": [
