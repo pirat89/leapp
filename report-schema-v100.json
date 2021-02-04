@@ -184,14 +184,11 @@
                         "required": [
                             "hostname",
                             "severity",
-                            "tags",
                             "timeStamp",
                             "title",
-                            "detail",
                             "actor",
                             "summary",
                             "audience",
-                            "flags",
                             "id"
                         ],
                         "properties": {
@@ -423,41 +420,41 @@
                                             ],
                                             [
                                                 {
-                                                  "type": "hint", 
+                                                  "type": "hint",
                                                   "context": "This is remediation with hint and the command."
-                                                }, 
+                                                },
                                                 {
-                                                  "type": "command", 
+                                                  "type": "command",
                                                   "context": [ "echo", "some text" ]
                                                 }
                                             ],
                                             [
                                               {
-                                                "type": "command", 
+                                                "type": "command",
                                                 "context": [ "echo", "some text", "2" ]
-                                              }, 
+                                              },
                                               {
-                                                "type": "command", 
+                                                "type": "command",
                                                 "context": [ "echo", "2nd", "cmd" ]
                                               }
                                             ],
                                             [
                                               {
-                                                "type": "hint", 
+                                                "type": "hint",
                                                 "context": "The remediation with hint, command, and playbook."
-                                              }, 
+                                              },
                                               {
-                                                "type": "command", 
+                                                "type": "command",
                                                 "context": [ "echo", "some text" ]
-                                              }, 
+                                              },
                                               {
-                                                "type": "playbook", 
+                                                "type": "playbook",
                                                 "context": "/path/to/playbook"
                                               }
                                             ],
                                             [
                                               {
-                                                "type": "playbook", 
+                                                "type": "playbook",
                                                 "context": "/path/to/playbook"
                                               }
                                             ]
@@ -483,9 +480,7 @@
                                                         "context"
                                                     ],
                                                     "properties": {
-                                                        "anyOf": [
-                                                            {
-                                                                "type": {
+                                                            "type": {
                                                                     "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
                                                                     "type": "string",
                                                                     "title": "The type schema",
@@ -495,8 +490,8 @@
                                                                     "examples": [
                                                                         "hint"
                                                                     ]
-                                                                },
-                                                                "context": {
+                                                            },
+                                                            "context": {
                                                                     "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
                                                                     "type": "string",
                                                                     "title": "The context schema",
@@ -505,21 +500,37 @@
                                                                     "examples": [
                                                                         "Please update your scripts to be compatible with the changes."
                                                                     ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": {
+                                                            }
+                                                    },
+                                                    "additionalProperties": true
+                                                },
+                                                {
+                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0",
+                                                    "type": "object",
+                                                    "title": "The first remediation",
+                                                    "description": "",
+                                                    "default": {},
+                                                    "examples": [
+                                                        {
+                                                            "type": "hint",
+                                                            "context": "Please update your scripts to be compatible with the changes."
+                                                        }
+                                                    ],
+                                                    "required": [
+                                                        "type",
+                                                        "context"
+                                                    ],
+                                                    "properties": {
+                                                            "type": {
                                                                     "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
                                                                     "type": "string",
                                                                     "title": "The type schema",
                                                                     "description": "Type of remediation.",
                                                                     "default": "",
-                                                                    "enum": ["commands"],
-                                                                    "examples": [
-                                                                        "commands"
-                                                                    ]
-                                                                },
-                                                                "context": {
+                                                                    "enum": ["command"],
+                                                                    "examples": ["command"]
+                                                            },
+                                                            "context": {
                                                                     "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
                                                                     "type": "array",
                                                                     "title": "The context schema",
@@ -535,7 +546,7 @@
                                                                         "$id": "#/properties/entries/items/anyOf/0/properties/flags/items",
                                                                         "anyOf": [
                                                                             {
-                                                                                "$id": "#/properties/entries/items/anyOf/0/properties/flags/items/anyOf/0",
+                                                                                "$id": "#/properties/detail/remediation/items/anyOf/0/properties/context/items/anyOf/0",
                                                                                 "type": "string",
                                                                                 "title": "The remediation command schema",
                                                                                 "description": "The remediation in form of a command.",
@@ -546,17 +557,15 @@
                                                                             }
                                                                         ]
                                                                     }
-                                                                }
                                                             }
-                                                        ]
                                                     },
                                                     "additionalProperties": true
                                                 }
                                             ]
-                                        },
-                                        "additionalProperties": true
+                                        }
                                     }
-                                }
+                                },
+                                "additionalProperties": true
                             },
                             "actor": {
                                 "$id": "#/properties/entries/items/anyOf/0/properties/actor",
@@ -621,7 +630,6 @@
                             "id": {
                                 "$id": "#/properties/entries/items/anyOf/0/properties/id",
                                 "type": "string",
-                                "format": "uuid",
                                 "title": "The id schema",
                                 "description": "Unique id for the report entry. Not stable.",
                                 "default": "",
