@@ -486,84 +486,67 @@
                                                         "context"
                                                     ],
                                                     "properties": {
-                                                            "type": {
-                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
-                                                                    "type": "string",
-                                                                    "title": "The type schema",
-                                                                    "description": "Type of remediation.",
-                                                                    "default": "",
-                                                                    "enum": ["hint", "playbook"],
-                                                                    "examples": [
-                                                                        "hint"
-                                                                    ]
-                                                            },
-                                                            "context": {
-                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
-                                                                    "type": "string",
-                                                                    "title": "The context schema",
-                                                                    "description": "The remediation itself.",
-                                                                    "default": "",
-                                                                    "examples": [
-                                                                        "Please update your scripts to be compatible with the changes."
-                                                                    ]
-                                                            }
-                                                    },
-                                                    "additionalProperties": true
-                                                },
-                                                {
-                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/1",
-                                                    "type": "object",
-                                                    "title": "The first remediation",
-                                                    "description": "",
-                                                    "default": {},
-                                                    "examples": [
-                                                        {
-                                                            "type": "command",
-                                                            "context": [ "rm -rf /tmp/42" ]
+                                                        "type": {
+                                                            "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/type",
+                                                            "type": "string",
+                                                            "title": "The type schema",
+                                                            "description": "Type of remediation.",
+                                                            "default": "",
+                                                            "enum": ["hint", "command", "playbook"],
+                                                            "examples": [
+                                                                "hint"
+                                                            ]
                                                         }
-                                                    ],
-                                                    "required": [
-                                                        "type",
-                                                        "context"
-                                                    ],
-                                                    "properties": {
-                                                            "type": {
-                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/type",
-                                                                    "type": "string",
-                                                                    "title": "The type schema",
-                                                                    "description": "Type of remediation.",
-                                                                    "default": "",
-                                                                    "enum": ["command"],
-                                                                    "examples": ["command"]
-                                                            },
+                                                    },
+                                                    "if": {
+                                                        "properties": { "type": { "const": "command" } }
+                                                    },
+                                                    "then": {
+                                                        "properties": {
                                                             "context": {
-                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/context",
-                                                                    "type": "array",
-                                                                    "title": "The context schema",
-                                                                    "description": "List of remediation commands.",
-                                                                    "default": [],
-                                                                    "examples": [
-                                                                        [
-                                                                            "rm -rf /tmp/42"
-                                                                        ]
-                                                                    ],
-                                                                    "additionalItems": true,
-                                                                    "items": {
-                                                                        "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/context/items",
-                                                                        "anyOf": [
-                                                                            {
-                                                                                "$id": "#/properties/detail/properties/remediations/items/anyOf/1/properties/context/items/anyOf/0",
-                                                                                "type": "string",
-                                                                                "title": "The remediation command schema",
-                                                                                "description": "The remediation in form of a command.",
-                                                                                "default": "",
-                                                                                "examples": [
-                                                                                    "rm -rf /tmp/42"
-                                                                                ]
-                                                                            }
-                                                                        ]
-                                                                    }
+                                                                "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
+                                                                "type": "array",
+                                                                "title": "The context schema",
+                                                                "description": "The remediation command.",
+                                                                "examples": [
+                                                                    [ "echo", "some text" ],
+                                                                    [ "echo", "some text", "2" ]
+                                                                ],
+                                                                "additionalItems": true,
+                                                                "items": {
+                                                                    "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context/items",
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context/items/anyOf/0",
+                                                                            "type": "string",
+                                                                            "title": "The remediation command schema",
+                                                                            "description": "Item in the remediation command.",
+                                                                            "default": "",
+                                                                            "examples": [
+                                                                                "echo",
+                                                                                "some",
+                                                                                "text"
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
                                                             }
+                                                        }
+                                                    },
+                                                    "else": {
+                                                        "properties": {
+                                                            "context": {
+                                                                "$id": "#/properties/detail/properties/remediations/items/anyOf/0/properties/context",
+                                                                "type": "string",
+                                                                "title": "The context schema",
+                                                                "description": "The remediation itself.",
+                                                                "default": "",
+                                                                "examples": [
+                                                                    "Please update your scripts to be compatible with the changes.",
+                                                                    "/path/to/playbook"
+                                                                ]
+                                                            }
+                                                        }
                                                     },
                                                     "additionalProperties": true
                                                 }
